@@ -57,3 +57,90 @@ def ex2():
                 print(f"linha {linha} e coluna {coluna} → produto = {num} → {paridade}, {tamanho};")
         print("_________________________")
 
+def ex3():
+    #CT1: entrada: N=4 Saida: 7 8 9 10
+    #CT2: entrada: N=0 Saida: null
+    n = int(input("Digite o número de N: "))
+    contador=1
+    for linha in range(1, n+1):
+        valores_c=""
+        soma_c=0
+        divisores_c=0
+        for coluna in range(contador, contador+linha):
+            valores_c+=str(coluna)+" "
+            soma_c+=coluna
+            if coluna==1:
+                maior_c=coluna
+            else:
+                if coluna>maior_c:
+                    maior_c=coluna
+            if coluna%3==0:
+                divisores_c+=1
+        contador=coluna+1
+        print(f"{valores_c}| soma = {soma_c} | maior = {maior_c} | multiplos de 3 = {divisores_c}")
+
+def ex4():
+    turma=int(input("Digite a quantidade de turmas: "))
+    for i in range(1, turma+1):
+        aluno=int(input(f"Digite a quantidade de alunos na turma {i}: "))
+        aprovados=0
+        reprovados=0
+        recuperação=0
+        nota_geral=0
+        for j in range(1, aluno+1):
+            nota_1=float(input(f"Digite a nota 1 do aluno {j}: "))
+            nota_2=float(input(f"Digite a nota 2 do aluno {j}: "))
+            nota_media=(nota_1+nota_2)/2
+            nota_geral+=nota_media
+            if nota_media>7:
+                estado="aprovado"
+                aprovados+=1
+            elif nota_media<5:
+                estado="reprovado"
+                reprovados+=1
+            else:
+                estado="recuperação"
+                recuperação+=1
+            print(f"Aluno {j} teve uma média de {nota_media:.1f} e por isso está {estado}.")
+        nota_geral/=aluno
+        print(f"Na turma {i} a nota média foi {nota_geral:.1f}, com {aprovados} aprovado(s), {recuperação} em recuperação, e {reprovados} reprovado(s).")
+
+def ex5():
+    mesas = int(input("Digite a quantidade de mesas atendidas: "))
+    faturamento_total,hamburger,refrigerante,sobremesa=0,0,0,0
+    for i in range(1 , mesas + 1):
+        pedidos = int(input(f"Digite a quantidade de pedidos feitos na mesa {i}: "))
+        quantia_pedidos=0
+        conta_mesa=0
+        for j in range(1 , pedidos + 1):
+            codigo = int(input(f"Digite o código do pedido {j}: "))
+            status=True
+            if codigo==1:
+                valor=18
+            elif codigo==2:
+                valor=6
+            elif codigo==3:
+                valor=9
+            else:
+                print("código de produto inválido, desconsiderando item.")
+                status=False
+            if status:
+                qnt = int(input("Digite a quantidade de itens pedidos: "))
+                if qnt<=0:
+                    print("quantia de produto inválida, desconsiderando item.")
+                else:
+                    if codigo==1:
+                        hamburger+=qnt
+                    elif codigo==2:
+                        refrigerante+=qnt
+                    elif codigo==3:
+                        sobremesa+=qnt
+            if status:
+                conta_mesa+=valor*qnt
+                quantia_pedidos+=qnt
+        print(f"A mesa {i} gastou um total de R${conta_mesa} com um total de {quantia_pedidos} itens pedidos.")
+        faturamento_total+=conta_mesa
+
+    print(f"O dia de hoje faturou um total de R${faturamento_total} vendendo {hamburger} hambúrgeres, {refrigerante} refrigerantes, e {sobremesa} sobremesas.")
+
+ex5()
