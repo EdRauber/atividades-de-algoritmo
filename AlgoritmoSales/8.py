@@ -50,9 +50,9 @@ def gerar_resumo_correcao(nota):
     print(classificar_desempenho(nota))
     print(calcular_situacao(nota))
 
-for aluno in range(1,4):
-    print("________________")
-    print(f"Aluno {aluno}:")
-    nota = int(input("Digite sua nota: "))
-    if (nota_valida(nota)):
-        gerar_resumo_correcao(nota)
+# for aluno in range(1,4):
+#     print("________________")
+#     print(f"Aluno {aluno}:")
+#     nota = int(input("Digite sua nota: "))
+#     if (nota_valida(nota)):
+#         gerar_resumo_correcao(nota)

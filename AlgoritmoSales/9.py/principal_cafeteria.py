@@ -1,0 +1,36 @@
+import funcoes_cafeteria as bib9
+
+# preco_base = float(input("Insira o valor do café: "))
+# acrescimo = float(input("Insira o acréscimo: "))
+# print(funcoes_cafeteria.calcular_preco_cafe(preco_base, acrescimo))
+
+# preco = float(input("Insira o valor do acompanhamento: "))
+# desconto = float(input("Insira o percentual do desconto: "))
+# print(funcoes_cafeteria.calcular_acompanhamento(preco, desconto))
+
+# nome = input("Insira o nome do produto consumido: ")
+# valor = float(input("Insira o valor do produto: "))
+# print(funcoes_cafeteria.resumo_item(nome, valor))
+
+# valor1 = float(input("Insira o valor do primeiro produto: "))
+# valor2 = float(input("Insira o valor do segundo produto: "))
+# taxa_servico = float(input("Insira o valor percentual da taxa: "))
+# print(funcoes_cafeteria.calcular_totais(valor1, valor2, taxa_servico))
+
+nome_cafe = input("Insira o nome do café consumido: ")
+preco_base = float(input("Insira o valor do café: "))
+acrescimo = float(input("Insira o acréscimo: "))
+nome_acompanhamento = input("Insira o nome do produto consumido: ")
+preco = float(input("Insira o valor do acompanhamento: "))
+desconto = float(input("Insira o percentual do desconto: "))
+valor1, valor2 = bib9.calcular_preco_cafe(preco_base, acrescimo), bib9.calcular_acompanhamento(preco, desconto)
+taxa_servico = float(input("Insira o valor percentual da taxa: "))
+print("_______________________")
+print("Resumo total do pedido:")
+print("Resumo Café:")
+print(bib9.resumo_item(nome = nome_cafe, valor = bib9.calcular_preco_cafe(preco_base, acrescimo)))
+print("_______________________")
+print("Resumo acompanhamento:")
+print(bib9.resumo_item(nome = nome_acompanhamento, valor = bib9.calcular_acompanhamento(preco, desconto)))
+print("_______________________")
+print(bib9.calcular_totais(valor1, valor2, taxa_servico))
