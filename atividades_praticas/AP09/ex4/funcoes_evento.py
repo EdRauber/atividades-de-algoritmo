@@ -1,3 +1,9 @@
+def intencao(sim_nao):
+    if sim_nao == 1:
+        return True
+    else:
+        return False 
+
 def calcular_valor_base(tipo_ingresso, valor_padrao=120):
     if tipo_ingresso == "regular":
         return valor_padrao
@@ -24,4 +30,7 @@ def classificar_participacao(oficinas, material_extra, total_final):
         return "Inscrição básica"
 
 def gerar_relatorio_participante(nome, tipo_ingresso, valor_padrao, oficinas, material_extra, cupom=0):
-    
+    valor_base = calcular_valor_base (tipo_ingresso , valor_padrao)
+    valor_oficinas , valor_extra , valor_parcial = calcular_extras(valor_base , oficinas , material_extra)
+    valor_desconto , valor_taxa_adm , total_final = aplicar_desconto(valor_parcial , cupom, taxa_admin=5)
+    return valor_base , valor_oficinas , valor_extra , valor_desconto , valor_taxa_adm , total_final , classificar_participacao(oficinas, material_extra , total_final)
