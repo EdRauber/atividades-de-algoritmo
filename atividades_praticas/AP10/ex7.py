@@ -1,21 +1,18 @@
-alunos = []
-x = 10
+produtos = []
+x = 8
 
 for i in range(x):
-    nota = float(input(""))
-    alunos.append(nota)
+    item = float(input(""))
+    produtos.append(item)
 
-soma = sum(alunos)
-media = soma / x
+precos_ajustados = []
 
-acima_media = 0
-lista_media = []
+for i in produtos:
+    if i < 100:
+        ajuste = i + (i/10)
+    elif i >= 100:
+        ajuste = i + (i/20)
+    precos_ajustados.append(ajuste)
 
-for i in alunos:
-    if i > media:
-        acima_media += 1
-        lista_media.append(i)
-
-print(f"Média da turma: {media}")
-print(f"Quantidade acima da média: {acima_media}")
-print(f"Notas acima da média: {lista_media}")
+print(f"Preços originais: {produtos}")
+print(f"Preços reajustados: {precos_ajustados}")

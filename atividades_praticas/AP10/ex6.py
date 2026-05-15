@@ -1,25 +1,21 @@
-numeros = []
-x = 7
+alunos = []
+x = 10
 
 for i in range(x):
-    captura = int(input(""))
-    numeros.append(captura)
+    nota = float(input(""))
+    alunos.append(nota)
 
-contador = 0 
+soma = sum(alunos)
+media = soma / x
 
-for i in numeros:
-    if contador == 0:
-        maior = i
-        menor = i
-    elif i > maior:
-        maior = i
-        posicao_maior = contador
-    elif i < menor:
-        menor = i
-        posicao_menor = contador
-    contador += 1
+acima_media = 0
+lista_media = []
 
-print(f"Maior valor: {maior}")
-print(f"Posição do maior valor: {posicao_maior}")
-print(f"Menor valor: {menor}")
-print(f"Posição do menor valor: {posicao_menor}")
+for i in alunos:
+    if i > media:
+        acima_media += 1
+        lista_media.append(i)
+
+print(f"Média da turma: {media}")
+print(f"Quantidade acima da média: {acima_media}")
+print(f"Notas acima da média: {lista_media}")
