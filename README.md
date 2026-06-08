@@ -1,2 +1,2 @@
 # atividades-de-algoritmo
-Coleção das atividades de Algoritmo
+Coleção das atividades de Algoritmo do Laerte
